@@ -1,10 +1,8 @@
-import { BASE_URL } from "../constants/api.js";
+import { registerUrl } from "./constants/api.js";
 
-const registerUrl = `${BASE_URL}auth/register`;
-
-export async function registerUser(name, email, password = "") {
+export async function registerUser(username, email, password = "") {
   const userData = {
-    name: name,
+    username: username,
     email: email,
     password: password,
   };
@@ -32,4 +30,4 @@ export async function registerUser(name, email, password = "") {
 }
 
 // Eksempel på å bruke funksjonen
-registerUser("Marianne", "johndoe@example.com", "securePassword123");
+registerUser("username", "johndoe@example.com", "securePassword123");

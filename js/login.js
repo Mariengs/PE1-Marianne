@@ -1,3 +1,5 @@
+import { logInUrl } from "./login.js";
+
 document
   .getElementById("loginForm")
   .addEventListener("submit", async function (event) {
@@ -15,7 +17,7 @@ document
 
     try {
       // Send POST-forespørsel til API-et
-      const response = await fetch("https://v2.api.noroff.dev/auth/login", {
+      const response = await fetch(logInUrl, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -31,6 +33,7 @@ document
 
         // Du kan lagre tokenet (hvis returnert) for senere bruk
         localStorage.setItem("authToken", data.token);
+        window.location.href = "index.html";
         // Gjør videre handlinger etter innlogging, f.eks. omdiriger til ny side
       } else {
         document.getElementById("loginMessage").innerText =
