@@ -3,7 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="js/login.js" type="module"></script>
+    <link rel="stylesheet" href="/css/styles.css" />
     <title>Account Login Page</title>
   </head>
-  <body></body>
+  <header>
+    <div class="logoheader">
+      <img src="/assets/horizontal-logo.png" alt="logo" class="logoheader" />
+    </div>
+    <div class="buttonsheader">
+      <button>Register</button>
+      <button>LogIn</button>
+    </div>
+  </header>
+  <body>
+    <section class="login">
+      <h2>LogIn</h2>
+      <form id="loginForm" class="loginform">
+        <label for="username">Username:</label>
+        <input type="text" id="username" required /><br /><br />
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" required /><br /><br />
+
+        <button type="submit">Log in</button>
+      </form>
+      <p id="loginMessage"></p>
+    </section>
+  </body>
 </html>

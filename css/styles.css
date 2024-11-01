@@ -29,3 +29,9 @@ header {
 .buttonsheader button:hover {
   background-color: #62676c;
 }
+
+body {
+  max-width: auto;
+  margin: 1;
+  background-color: #f7f7f8;
+}
