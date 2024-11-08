@@ -1,4 +1,4 @@
-// Sjekk om brukeren er logget inn
+// Sjekker om du er logget inn
 function isLoggedIn() {
   return !!localStorage.getItem("authToken");
 }
@@ -10,7 +10,9 @@ async function loadPost(postId) {
   }
 
   try {
-    const response = await fetch(`https://api.example.com/posts/${postId}`);
+    const response = await fetch(
+      `https://v2.api.noroff.dev/blog/posts/<name>/<id>`
+    );
     const post = await response.json();
 
     document.getElementById("title").value = post.title;
@@ -28,13 +30,16 @@ async function deletePost(postId) {
   }
 
   try {
-    const response = await fetch(`https://api.example.com/posts/${postId}`, {
-      method: "DELETE",
-      headers: {
-        Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `https://v2.api.noroff.dev/blog/posts/<name>/<id>`,
+      {
+        method: "DELETE",
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     if (response.ok) {
       alert("Post deleted successfully.");
@@ -62,14 +67,17 @@ document
     }
 
     try {
-      const response = await fetch(`https://api.example.com/posts/${postId}`, {
-        method: "POST",
-        headers: {
-          Authorization: `Bearer ${localStorage.getItem("authToken")}`,
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ title, body, image }),
-      });
+      const response = await fetch(
+        `https://v2.api.noroff.dev/blog/posts/<name>`,
+        {
+          method: "POST",
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem("authToken")}`,
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ title, body, image }),
+        }
+      );
 
       if (response.ok) {
         alert("Post updated successfully.");
