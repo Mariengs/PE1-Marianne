@@ -3,11 +3,62 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/edit.css" />
+    <script src="../js/editPost.js" type="module"></script>
     <title>Blog Post Edit Page</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
+    <header>
+      <div class="logoheader">
+        <img
+          src="../assets/horizontal-logo.png"
+          alt="logo"
+          class="logoheader"
+        />
+      </div>
+      <div class="buttonsheader">
+        <button onclick="window.location.href='/account/login.html'">
+          Login
+        </button>
+        <button onclick="window.location.href='/account/register.html'">
+          Register
+        </button>
+      </div>
+    </header>
+    <main>
+      <h1>Edit Post</h1>
+      <section class="editForm">
+        <form id="editForm">
+          <label for="title">Title:</label>
+          <input type="text" id="title" name="title" required />
+
+          <label for="body">Content:</label>
+          <textarea id="body" name="body" required></textarea>
+
+          <label for="image">Image URL:</label>
+          <input type="text" id="image" name="image" />
+
+          <button type="submit">Update post</button>
+          <button type="button" onclick="deletePost(postId)">
+            Delete post
+          </button>
+        </form>
+      </section>
+    </main>
     <footer></footer>
   </body>
 </html>
+
+<!-- 
+  •	As the owner, I want the blog post edit page to be 
+  available only for me when logged in, to ensure no 
+  unauthorized edits can be made to my posts.
+
+•	As the owner, I want a delete button that sends a 
+DELETE request to the API for this post ID on the edit page, 
+so I can easily remove my post if needed.
+
+•	As the owner, I want a validated edit form that allows me to 
+update the title, body content, or image by sending a 
+POST request to the API for this post ID, ensuring I can keep my posts up to date easily. 
+-->

@@ -20,12 +20,16 @@ header {
 .buttonsheader button {
   padding: 10px 20px;
   background-color: #424953;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
   color: #ffffff;
   border: none;
   border-radius: 5px;
   cursor: pointer;
 }
 
-.buttonsheader button:hover {
+.buttonsheader button:hover,
+.loginbutton button:hover,
+.registerbutton button:hover {
   background-color: #62676c;
 }
