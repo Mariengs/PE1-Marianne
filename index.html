@@ -14,6 +14,7 @@
       <div class="logoheader">
         <img src="assets/horizontal-logo.png" alt="logo" class="logoheader" />
       </div>
+
       <div class="buttonsheader">
         <button onclick="window.location.href='account/login.html'">
           Login
@@ -24,6 +25,11 @@
       </div>
     </header>
     <main>
+      <div class="createpostbutton">
+        <button onclick="window.location.href=`post/create.html`">
+          Create New Post
+        </button>
+      </div>
       <div class="carousel">
         <div
           class="carousel-slide active"
@@ -55,42 +61,28 @@
       </div>
 
       <section class="posts-container">
-        <h1>Posts</h1>
+        <div class="h1-text">
+          <h1>Latest posts</h1>
+        </div>
 
         <div id="posts-container" class="posts-grid">
           <button class="edit-post-btn" href="post/edit.html"></button>
         </div>
-        <!-- <div class="post"></div> -->
       </section>
-      <!-- <h2>Edit posts</h2>
-      <h3>Lag nytt innlegg</h3>
-      <form id="create-post-form">
-        <input
-          type="text"
-          id="title"
-          placeholder="Tittel"
-          required
-        /><br /><br />
-        <textarea id="body" placeholder="Innhold" required></textarea
-        ><br /><br />
-        <input
-          type="text"
-          id="tags"
-          placeholder="Tags (kommaseparert)"
-        /><br /><br />
-        <input
-          type="text"
-          id="media-url"
-          placeholder="Mediebilde URL"
-        /><br /><br />
-        <input type="submit" value="Lag innlegg" />
-      </form> -->
-
-      <a href="post/edit.html"> Edit post</a>
-
-      <a href="post/create.html"> Create post</a>
     </main>
-    <footer></footer>
+    <footer>
+      <div class="logofooter">
+        <img src="/assets/vertical-logo.png" alt="logo footer" />
+      </div>
+      <div class="footer-text">
+        <p>
+          HotView Labs 1234 <br />
+          Innovation Drive <br />
+          Suite 567 <br />
+          Tech City, 89012 Norway
+        </p>
+      </div>
+    </footer>
   </body>
 </html>
 

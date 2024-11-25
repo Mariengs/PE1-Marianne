@@ -12,7 +12,7 @@ if (!accessToken || !name) {
   console.error("Missing accessToken or user in localStorage");
 }
 
-async function fetchPostById(id) {
+export async function fetchPostById(id) {
   try {
     const response = await fetch(`${BASE_URL}blog/posts/${name}/${id}`, {
       method: "GET",

@@ -9,38 +9,18 @@ if (!accessToken) {
   window.location.href = "/account/login.html";
 }
 
-async function fetchPost(id) {
-  if (!id) {
-    console.error("Post ID is missing.");
-    alert("ID not found.");
+async function updatePost(event) {
+  event.preventDefault();
+
+  // Hent verdier fra input-feltene
+  const title = document.getElementById("title").value.trim();
+  const body = document.getElementById("body").value.trim();
+  const image = document.getElementById("image").value.trim();
+
+  if (!title || !body) {
+    alert("Title og body kan ikke være tomme.");
     return;
   }
-
-  try {
-    const response = await fetch(`${BASE_URL}blog/posts/${name}/${id}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
-
-    if (!response.ok) {
-      throw new Error(`Couldn't load post: ${response.status}`);
-    }
-
-    return await response.json();
-  } catch (error) {
-    console.error("Error loading post:", error);
-    alert("Couldn't load post.");
-  }
-}
-
-// Oppdater innlegg
-async function updatePost(event) {
-  event.preventDefault(); // Forhindrer sideoppdatering
-
-  const title = document.getElementById("title").value;
-  const body = document.getElementById("body").value;
-  const image = document.getElementById("image").value;
 
   const postData = {
     title,
@@ -49,7 +29,6 @@ async function updatePost(event) {
   };
 
   try {
-    // Legg ID-en i URL-en for oppdatering
     const response = await fetch(`${BASE_URL}blog/posts/${name}/${id}`, {
       method: "PUT",
       headers: {
@@ -64,9 +43,11 @@ async function updatePost(event) {
     }
 
     const updatedPost = await response.json();
-    alert("Post updated successfully!");
-    console.log("Updated post:", updatedPost);
-    window.location.href = `/index.html?id=${id}`; // Omdiriger til visningen av innlegget etter oppdatering
+    alert("Post updated!");
+    console.log("Oppdatert innlegg:", updatedPost);
+
+    // Omdirigerer tilbake til forsiden (eller visningen av innlegget)
+    window.location.href = `/index.html`;
   } catch (error) {
     console.error("Error updating post:", error);
     alert("Couldn't update post.");
@@ -87,7 +68,7 @@ async function deletePost() {
     if (!response.ok) throw new Error("Couldn't delete post");
 
     alert("Post deleted successfully!");
-    window.location.href = "/"; // Tilbake til liste over innlegg
+    window.location.href = "/";
   } catch (error) {
     console.error("Error deleting post:", error);
     alert("Couldn't delete post.");
@@ -102,18 +83,20 @@ document.addEventListener("DOMContentLoaded", () => {
       const id = editForm.getAttribute("data-id"); // Hent ID fra data-id
       const name = JSON.parse(localStorage.getItem("user")).username;
 
-      if (confirm("Er du sikker på at du vil slette dette innlegget?")) {
+      if (confirm("Are you sure you want to delete this post?")) {
         deletePost(name, id);
       }
     });
   } else {
-    console.error("Delete-knapp eller skjema ikke funnet!");
+    console.error("Form elements not found!");
   }
 });
 
+import { fetchPostById } from "/js/posts/singlePost.js";
+
 // Fyll skjemaet med innlegg-data
 async function loadEditForm() {
-  const data = await fetchPost(id);
+  const data = await fetchPostById(id);
   if (!data) return;
 
   // Finn de relevante input-elementene før du setter verdiene

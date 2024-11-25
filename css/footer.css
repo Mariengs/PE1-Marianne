@@ -1,8 +1,19 @@
 footer {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-  padding: 14px;
+  padding: 20px;
   background-color: #f7f7f8;
   border-top: 2px solid #424953;
+}
+
+.logofooter img {
+  width: 100px; /* Endre dette for ønsket størrelse */
+  height: auto;
+}
+
+.footer-text p {
+  margin: 0;
+  font-size: 16px;
+  color: #333;
 }

@@ -1,3 +1,5 @@
+@import url(footer.css);
+
 body {
   max-width: auto;
   margin: 1;
@@ -8,6 +10,11 @@ h1,
 h2,
 a {
   font-family: "Times New Roman", Times, serif;
+}
+
+h1 {
+  font-size: 24px;
+  margin-bottom: 20px;
 }
 
 a {
@@ -46,7 +53,8 @@ header {
 
 .buttonsheader button:hover,
 .loginbutton button:hover,
-.registerbutton button:hover {
+.registerbutton button:hover,
+.createpostbutton button:hover {
   background-color: #62676c;
 }
 
@@ -94,11 +102,30 @@ main {
   max-width: 100%;
 }
 
+.createpostbutton {
+  display: flex;
+  align-items: end;
+  margin-top: 20px;
+  padding: 50px;
+  margin-left: auto;
+}
+
+.createpostbutton button {
+  padding: 10px 20px;
+  background-color: #424953;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
 .posts-grid {
   display: flex;
   flex-wrap: wrap; /* Sørger for at elementene brytes til neste linje når de ikke får plass */
   justify-content: space-between; /* Fordeler plassene jevnt mellom elementene */
-  gap: 16px; /* Gap mellom elementene */
+  gap: 20px; /* Gap mellom elementene */
 }
 
 .post {
@@ -126,13 +153,4 @@ main {
   color: #ffffff;
   border: none;
   border-radius: 5px;
-}
-
-footer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 14px;
-  background-color: #f7f7f8;
-  border-top: 2px solid #424953;
 }

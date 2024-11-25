@@ -13,6 +13,11 @@
       <div class="logoheader">
         <img src="/assets/horizontal-logo.png" alt="logo" class="logoheader" />
       </div>
+      <nav>
+        <ul>
+          <li><a href="/">Home</a></li>
+        </ul>
+      </nav>
       <div class="buttonsheader">
         <button onclick="window.location.href='/account/login.html'">
           Login
@@ -24,6 +29,14 @@
     </header>
     <main>
       <section class="post">
+        <div class="text">
+          <h1 id="title"></h1>
+          <p id="body"></p>
+        </div>
+
+        <div class="image">
+          <img id="image" />
+        </div>
         <div class="buttons">
           <button
             onclick="window.location.href='/post/edit.html?id=${id}'"
@@ -34,15 +47,21 @@
           </button>
           <button id="deleteButton" class="delete-button">Delete</button>
         </div>
-        <div class="text">
-          <h1 id="title"></h1>
-          <p id="body"></p>
-        </div>
-
-        <div class="image">
-          <img id="image" />
-        </div>
       </section>
     </main>
+    <footer>
+      <div class="logofooter">
+        <img src="/assets/vertical-logo.png" alt="logo footer" />
+      </div>
+
+      <div class="footer-text">
+        <p>
+          HotView Labs 1234 <br />
+          Innovation Drive <br />
+          Suite 567 <br />
+          Tech City, 89012 Norway
+        </p>
+      </div>
+    </footer>
   </body>
 </html>

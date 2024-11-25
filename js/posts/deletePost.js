@@ -19,8 +19,7 @@ export async function deletePost(name, id) {
     console.log(`Post with ID: ${id} deleted successfully`);
     alert("The post has been deleted!");
 
-    // Om ønskelig, omdiriger brukeren tilbake til en annen side:
-    window.location.href = "/"; // Endre til riktig destinasjon
+    window.location.href = "/";
   } catch (error) {
     console.error("Something went wrong:", error.message);
     alert("Couldn't delete post. Try again.");
@@ -28,17 +27,30 @@ export async function deletePost(name, id) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  const deleteButton = document.getElementById("delete-button");
+  const deleteButton = document.querySelector(".delete-button");
+
+  if (!deleteButton) {
+    console.error("Delete button not found in the DOM.");
+    return;
+  }
+
   const urlParams = new URLSearchParams(window.location.search);
   const id = urlParams.get("id"); // Hent ID fra URL-en
   const editForm = document.getElementById("editForm");
 
   deleteButton.addEventListener("click", () => {
-    const postId = editForm.getAttribute("data-id"); // Hent ID fra data-id
+    const postId = editForm ? editForm.getAttribute("data-id") : null; // Hent ID fra data-id
     const postType = "posts"; // Endre denne hvis endpointet har et annet navn
 
+    if (!id && !postId) {
+      alert("No valid post ID found.");
+      return;
+    }
+
+    const finalId = id || postId;
+
     if (confirm("Are you sure you want to delete this post?")) {
-      deletePost(postType, id);
+      deletePost(postType, finalId);
     }
   });
 });
