@@ -66,7 +66,7 @@ async function updatePost(event) {
     const updatedPost = await response.json();
     alert("Post updated successfully!");
     console.log("Updated post:", updatedPost);
-    window.location.href = `/post.html?id=${postId}`; // Omdiriger til visningen av innlegget etter oppdatering
+    window.location.href = `/index.html?id=${id}`; // Omdiriger til visningen av innlegget etter oppdatering
   } catch (error) {
     console.error("Error updating post:", error);
     alert("Couldn't update post.");
@@ -130,7 +130,7 @@ async function loadEditForm() {
   }
 
   if (imageInput) {
-    imageInput.data.data.media.url = data.data.image || "";
+    imageInput.value = data.data.media.url || "";
   }
 
   const editForm = document.getElementById("editForm");
