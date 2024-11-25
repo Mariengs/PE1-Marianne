@@ -1,20 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="no">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <script src="../js/posts/getPosts.js" type="module"></script>
-    <title>Blog Post Public Page</title>
+    <script src="/js/posts/singlePost.js" type="module"></script>
+    <script src="/js/posts/deletePost.js" type="module"></script>
+    <link rel="stylesheet" href="../css/singlePost.css" />
+    <title>Blog Post</title>
   </head>
   <body>
-    <header></header>
-    <main></main>
-    <footer></footer>
+    <header>
+      <div class="logoheader">
+        <img src="/assets/horizontal-logo.png" alt="logo" class="logoheader" />
+      </div>
+      <div class="buttonsheader">
+        <button onclick="window.location.href='/account/login.html'">
+          Login
+        </button>
+        <button onclick="window.location.href='/account/register.html'">
+          Register
+        </button>
+      </div>
+    </header>
+    <main>
+      <section class="post">
+        <div class="buttons">
+          <button
+            onclick="window.location.href='/post/edit.html?id=${id}'"
+            id="editButton"
+            class="edit-button"
+          >
+            Edit
+          </button>
+          <button id="deleteButton" class="delete-button">Delete</button>
+        </div>
+        <div class="text">
+          <h1 id="title"></h1>
+          <p id="body"></p>
+        </div>
+
+        <div class="image">
+          <img id="image" />
+        </div>
+      </section>
+    </main>
   </body>
 </html>
-
-<!-- •	As a user, I want to see a responsive layout showing the post 
-  title, author, publication date, image banner, and post content from the API.
-•	As a user, I want each blog page to have a shareable 
-URL including a query string or hash parameter that contains the post ID, 
-so I can share the post with others easily. -->

@@ -1,39 +1,58 @@
-export async function register(email, password) {
-  const regUrl = "https://v2.api.noroff.dev/api/v1/auth/register";
-  const payload = {
-    email: email,
-    password: password,
-  };
+import { registerUrl } from "../js/constants/api.js";
 
+function getValues() {
+  const name = document.getElementById("name").value;
+  const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
+
+  if (!name || !email || !password) {
+    alert("All fields are required.");
+    return null;
+  }
+
+  return { name, email, password };
+}
+
+function buildRequestBody({ name, email, password }) {
+  return {
+    name,
+    email,
+    password,
+  };
+}
+
+async function registerUser(requestBody) {
   try {
-    const response = await fetch(regUrl, {
+    const response = await fetch(registerUrl, {
       method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(payload),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify(requestBody),
     });
 
-    if (response.ok) {
-      const data = await response.json();
-      console.log("Registration successful:", data);
-      alert("Registration successful. You can now log in.");
-      window.location.href = "/index.html";
-      return data;
-    } else {
-      console.log("Registraiton failed:", response.status);
+    if (!response.ok) {
+      const errorData = await response.json();
+      console.error("Something went wrong:", errorData);
+      throw new Error(
+        `Registration failed: ${errorData.message || response.statusText}`
+      );
     }
+
+    const data = await response.json();
+    alert("Registration successful! Welcome!");
+    window.location.href = "../index.html";
   } catch (error) {
-    console.error("Something went wrong:", error);
+    alert(`Something went wrong: ${error.message}`);
   }
 }
 
 document
   .getElementById("registerform")
-  .addEventListener("submit", async function (event) {
+  .addEventListener("submit", function (event) {
     event.preventDefault();
-    const email = document.getElementById("email").value;
-    const password = document.getElementById("password").value;
 
-    await login(email, password);
+    const bodyValues = getValues();
+
+    const requestBody = buildRequestBody(bodyValues);
+
+    registerUser(requestBody);
   });

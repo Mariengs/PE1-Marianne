@@ -91,6 +91,41 @@ main {
   align-items: center;
   padding: 14px;
   background-color: #f7f7f8;
+  max-width: 100%;
+}
+
+.posts-grid {
+  display: flex;
+  flex-wrap: wrap; /* Sørger for at elementene brytes til neste linje når de ikke får plass */
+  justify-content: space-between; /* Fordeler plassene jevnt mellom elementene */
+  gap: 16px; /* Gap mellom elementene */
+}
+
+.post {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  text-align: center;
+  background-color: #fff;
+  flex: 1 1 250px; /* Lar elementene vokse og trekke seg tilbake til minimum 250px */
+  max-width: 100%; /* Sørger for at elementet ikke vokser utover containerens bredde */
+}
+
+.post-thumbnail {
+  width: 100%; /* Gjør bildet responsivt og tilpasser bredden */
+  max-width: 150px; /* Maksimal bredde for thumbnail */
+  height: auto; /* Sørger for riktig bildestørrelse */
+  border-radius: 8px; /* Legger til avrundede hjørner på bildet */
+}
+
+.edit-post-btn {
+  padding: 10px;
+  background-color: #424953;
+  font-size: 12px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
 }
 
 footer {

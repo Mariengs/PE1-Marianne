@@ -1,21 +1,6 @@
 @import url(../css/header.css);
 @import url(../css/footer.css);
-
-body {
-  max-width: auto;
-  margin: 1;
-  background-color: #f7f7f8;
-}
-h1,
-h2,
-a {
-  font-family: "Times New Roman", Times, serif;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
+@import url(../css/styles.css);
 
 main {
   display: flex;
@@ -26,7 +11,7 @@ main {
   background-color: #f7f7f8;
 }
 /* Container for redigeringsskjemaet */
-#editForm {
+#createPostForm {
   background-color: #ffffff;
   width: 100%;
   max-width: 500px;
@@ -36,7 +21,7 @@ main {
 }
 
 /* Tittel for skjemaet */
-#editForm label {
+#createPostForm label {
   display: block;
   font-weight: bold;
   margin-bottom: 5px;
@@ -44,8 +29,8 @@ main {
 }
 
 /* Styling for inputfelt */
-#editForm input[type="text"],
-#editForm textarea {
+#createPostForm input[type="text"],
+#createPostForm textarea {
   width: 100%;
   padding: 10px;
   margin-bottom: 15px;
@@ -54,14 +39,12 @@ main {
   font-size: 16px;
 }
 
-/* Styling for textarea */
-#editForm textarea {
+#createPostForm textarea {
   resize: vertical;
   min-height: 120px;
 }
 
-/* Styling for knapper */
-#editForm button {
+#createPostForm button {
   width: 48%;
   padding: 10px;
   border: none;
@@ -72,28 +55,20 @@ main {
   transition: background-color 0.3s ease;
 }
 
-#editForm button[type="submit"] {
-  background-color: #424953; /* Grønn for oppdatering */
+#createPostForm button[type="submit"] {
+  background-color: #424953;
 }
 
-#editForm button[type="submit"]:hover {
+#createPostForm button[type="submit"]:hover {
   background-color: #45a049;
 }
 
-#editForm button[type="button"] {
-  background-color: #424953; /* Rød for sletting */
-}
-
-#editForm button[type="button"]:hover {
-  background-color: #d32f2f;
-}
-
 @media (max-width: 600px) {
-  #editForm {
+  #createPostForm {
     padding: 15px;
   }
 
-  #editForm button {
+  #createPostForm button {
     width: 100%;
     margin-bottom: 10px;
   }

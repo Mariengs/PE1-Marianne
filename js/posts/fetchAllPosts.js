@@ -1,24 +1,38 @@
 import { BASE_URL } from "../constants/api.js";
 
-// Funksjon for å hente innlegg basert på navn
-export async function fetchPostByName(name) {
-  const URL = `${BASE_URL}blog/posts/${name}`; // Bygger opp URL-en
-  const response = await fetch(URL);
+function getAccessToken() {
+  return localStorage.getItem("accessToken");
+}
+const user = JSON.parse(localStorage.getItem("user"));
+const name = user?.username || "defaultName";
 
-  if (!response.ok) {
-    throw new Error("Something went wrong fetching the post");
+export async function fetchAllPosts() {
+  const accessToken = getAccessToken();
+
+  if (!accessToken) {
+    console.error("No access token found. Please log in.");
+    return [];
   }
 
-  const post = await response.json(); // Henter JSON-data
-  return post; // Returnerer innlegget
-}
+  try {
+    const response = await fetch(BASE_URL + `blog/posts/${name}`, {
+      headers: {
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
 
-// Kall funksjonen med et spesifikt postnavn
-const postName = "post name"; // Erstatt med det faktiske navnet på innlegget
-fetchPostByName(postName)
-  .then((post) => {
-    console.log(post); // Håndterer det hentede innlegget, f.eks. viser det i konsollen
-  })
-  .catch((error) => {
-    console.error("Error fetching the post:", error); // Håndterer eventuelle feil
-  });
+    if (!response.ok) throw new Error("Failed to fetch posts");
+
+    const result = await response.json();
+
+    if (result && result.data) {
+      return result.data;
+    } else {
+      console.error("API response does not contain 'data'!");
+      return [];
+    }
+  } catch (error) {
+    console.error("Error fetching posts:", error);
+    return [];
+  }
+}

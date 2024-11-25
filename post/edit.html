@@ -17,18 +17,14 @@
         />
       </div>
       <div class="buttonsheader">
-        <button onclick="window.location.href='/account/login.html'">
-          Login
-        </button>
-        <button onclick="window.location.href='/account/register.html'">
-          Register
-        </button>
+        <button onclick="window.location.href='login.html'">Login</button>
+        <button onclick="window.location.href='register.html'">Register</button>
       </div>
     </header>
     <main>
       <h1>Edit Post</h1>
       <section class="editForm">
-        <form id="editForm">
+        <form id="editForm" data-id="`${id}`">
           <label for="title">Title:</label>
           <input type="text" id="title" name="title" required />
 
@@ -38,10 +34,10 @@
           <label for="image">Image URL:</label>
           <input type="text" id="image" name="image" />
 
-          <button type="submit">Update post</button>
-          <button type="button" onclick="deletePost(postId)">
-            Delete post
-          </button>
+          <div class="form-actions">
+            <button type="submit">Update post</button>
+            <button type="button" id="delete-button">Delete post</button>
+          </div>
         </form>
       </section>
     </main>

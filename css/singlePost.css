@@ -1,0 +1,46 @@
+@import url(../css/header.css);
+@import url(../css/footer.css);
+@import url(../css/styles.css);
+
+main {
+  display: flex;
+  justify-content: center; /* Sentraliserer innholdet */
+  padding: 14px;
+}
+
+.post {
+  display: flex;
+  flex-direction: row-reverse; /* Bildet til høyre, teksten til venstre */
+  align-items: flex-start; /* Justerer elementene til toppen */
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 16px;
+  background-color: #fff;
+  max-width: 1000px; /* Juster bredde etter behov */
+  width: 100%;
+  gap: 20px; /* Avstand mellom bilde og tekst */
+}
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.buttons {
+  margin-top: auto; /* Skyver knappene ned til bunnen */
+  display: flex;
+  gap: 10px; /* Avstand mellom knappene */
+}
+
+.edit-button,
+.delete-button {
+  padding: 10px 20px;
+  background-color: #424953;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}

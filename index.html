@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/carousel.css" />
-    <script src="js/posts/fetchAllPosts.js" type="module"></script>
-    <script src="js/carousel.js" type="module"></script>
+    <script src="/js/carousel.js" type="module"></script>
+    <script type="module" src="/js/main.js"></script>
     <title>Blog Feed Page</title>
   </head>
   <body>
@@ -54,9 +54,41 @@
         <button class="carousel-control next" onclick="nextSlide()">❯</button>
       </div>
 
-      <h2>Edit posts</h2>
+      <section class="posts-container">
+        <h1>Posts</h1>
+
+        <div id="posts-container" class="posts-grid">
+          <button class="edit-post-btn" href="post/edit.html"></button>
+        </div>
+        <!-- <div class="post"></div> -->
+      </section>
+      <!-- <h2>Edit posts</h2>
+      <h3>Lag nytt innlegg</h3>
+      <form id="create-post-form">
+        <input
+          type="text"
+          id="title"
+          placeholder="Tittel"
+          required
+        /><br /><br />
+        <textarea id="body" placeholder="Innhold" required></textarea
+        ><br /><br />
+        <input
+          type="text"
+          id="tags"
+          placeholder="Tags (kommaseparert)"
+        /><br /><br />
+        <input
+          type="text"
+          id="media-url"
+          placeholder="Mediebilde URL"
+        /><br /><br />
+        <input type="submit" value="Lag innlegg" />
+      </form> -->
 
       <a href="post/edit.html"> Edit post</a>
+
+      <a href="post/create.html"> Create post</a>
     </main>
     <footer></footer>
   </body>
