@@ -45,7 +45,9 @@ document.addEventListener("DOMContentLoaded", async () => {
     const titleElement = document.getElementById("title");
     const bodyElement = document.getElementById("body");
     const imageElement = document.getElementById("image");
-    const altElement = document.getElementById("alt");
+    // const altElement = document.getElementById("alt");
+    const authorElement = document.getElementById("author");
+    const lastUpdatedElement = document.getElementById("updated");
 
     if (titleElement) titleElement.textContent = data.data.title || "No title";
     if (bodyElement)
@@ -53,13 +55,25 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (imageElement)
       imageElement.src =
         data.data.media.url || "https://via.placeholder.com/150";
-    if (altElement)
-      altElement.textContent = data.data.media.alt || "No alt text available.";
+    // if (altElement)
+    //   altElement.textContent = data.data.media.alt || "No alt text available.";
+    if (authorElement)
+      authorElement.textContent =
+        data.data.author.name || "No author available.";
+    authorElement.textContent = `Written by Marianne`;
+
+    // const authorName = data.data.author?.name || "No author available.";
+    // authorElement.textContent = `Author: ${authorName}`;
 
     if (imageElement && data.data.media && data.data.media.url) {
       imageElement.src = data.data.media.url;
     } else {
       imageElement.src = "https://via.placeholder.com/150";
+    }
+
+    if (lastUpdatedElement) {
+      const updatedDate = new Date(data.data.updated);
+      lastUpdatedElement.textContent = `Last updated: ${updatedDate.toLocaleString()}`;
     }
 
     const editButton = document.getElementById("editButton");
