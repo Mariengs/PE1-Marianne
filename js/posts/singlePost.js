@@ -45,6 +45,7 @@ document.addEventListener("DOMContentLoaded", async () => {
     const titleElement = document.getElementById("title");
     const bodyElement = document.getElementById("body");
     const imageElement = document.getElementById("image");
+    const altElement = document.getElementById("alt");
 
     if (titleElement) titleElement.textContent = data.data.title || "No title";
     if (bodyElement)
@@ -52,6 +53,8 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (imageElement)
       imageElement.src =
         data.data.media.url || "https://via.placeholder.com/150";
+    if (altElement)
+      altElement.textContent = data.data.media.alt || "No alt text available.";
 
     if (imageElement && data.data.media && data.data.media.url) {
       imageElement.src = data.data.media.url;

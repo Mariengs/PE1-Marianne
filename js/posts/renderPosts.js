@@ -22,7 +22,7 @@ export async function renderPosts(post) {
           <img src="${
             data.media?.url || "https://via.placeholder.com/150"
           }" alt="${data.title}" class="post-thumbnail" /></a>
-          <h2>${data.title}</h2>
+          <h3>${data.title}</h3>
          
           ${
             user

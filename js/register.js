@@ -39,7 +39,7 @@ async function registerUser(requestBody) {
 
     const data = await response.json();
     alert("Registration successful! Welcome!");
-    window.location.href = "../index.html";
+    window.location.href = "/account/login.html";
   } catch (error) {
     alert(`Something went wrong: ${error.message}`);
   }

@@ -1,5 +1,10 @@
 import { BASE_URL } from "./constants/api.js";
 const logInUrl = `${BASE_URL}auth/login`;
+
+// Mari
+// marengs@stud.noroff.no
+// 12345678
+
 async function logIn(email, password) {
   try {
     const response = await fetch(logInUrl, {
@@ -30,7 +35,7 @@ async function logIn(email, password) {
       localStorage.setItem("accessToken", data.data.accessToken);
 
       alert("Login successful!");
-      window.location.href = "/"; // Send brukeren til forsiden eller annen side
+      window.location.href = "/";
     } else {
       throw new Error("No access token received");
     }
