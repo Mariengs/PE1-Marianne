@@ -1,7 +1,6 @@
 export const BASE_URL = "https://v2.api.noroff.dev/";
 export const registerUrl = BASE_URL + "auth/register";
 export const accessToken = localStorage.getItem("accessToken");
-// const name = JSON.parse(localStorage.getItem("user")).username;
 
 export async function fetchPosts() {
   const response = await fetch();

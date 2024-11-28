@@ -6,13 +6,12 @@ const name = JSON.parse(localStorage.getItem("user")).username;
 
 if (!accessToken) {
   alert("You must be logged in to edit this post.");
-  window.location.href = "/account/login.html";
+  window.location.href = "login.html";
 }
 
-async function updatePost(event) {
+export async function updatePost(event) {
   event.preventDefault();
 
-  // Hent verdier fra input-feltene
   const title = document.getElementById("title").value.trim();
   const body = document.getElementById("body").value.trim();
   const image = document.getElementById("image").value.trim();
@@ -46,15 +45,14 @@ async function updatePost(event) {
     alert("Post updated!");
     console.log("Oppdatert innlegg:", updatedPost);
 
-    // Omdirigerer tilbake til forsiden (eller visningen av innlegget)
-    window.location.href = `/index.html`;
+    window.location.href = `/`;
   } catch (error) {
     console.error("Error updating post:", error);
     alert("Couldn't update post.");
   }
 }
 
-async function deletePost() {
+export async function deletePost() {
   if (!confirm("Are you sure you want to delete this post?")) return;
 
   try {
@@ -80,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
   if (deleteButton && editForm) {
     deleteButton.addEventListener("click", () => {
-      const id = editForm.getAttribute("data-id"); // Hent ID fra data-id
+      const id = editForm.getAttribute("data-id");
       const name = JSON.parse(localStorage.getItem("user")).username;
 
       if (confirm("Are you sure you want to delete this post?")) {
@@ -94,12 +92,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
 import { fetchPostById } from "/js/posts/singlePost.js";
 
-// Fyll skjemaet med innlegg-data
 async function loadEditForm() {
   const data = await fetchPostById(id);
   if (!data) return;
 
-  // Finn de relevante input-elementene før du setter verdiene
   const titleInput = document.getElementById("title");
   const bodyInput = document.getElementById("body");
   const imageInput = document.getElementById("image");

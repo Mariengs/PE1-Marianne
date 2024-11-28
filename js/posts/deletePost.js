@@ -1,6 +1,6 @@
 import { BASE_URL } from "../constants/api.js";
 
-const yourAccessToken = localStorage.getItem("accessToken"); // Hent token fra lagring
+const yourAccessToken = localStorage.getItem("accessToken");
 
 export async function deletePost(name, id) {
   try {
@@ -35,12 +35,12 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   const urlParams = new URLSearchParams(window.location.search);
-  const id = urlParams.get("id"); // Hent ID fra URL-en
+  const id = urlParams.get("id");
   const editForm = document.getElementById("editForm");
 
   deleteButton.addEventListener("click", () => {
-    const postId = editForm ? editForm.getAttribute("data-id") : null; // Hent ID fra data-id
-    const postType = "posts"; // Endre denne hvis endpointet har et annet navn
+    const postId = editForm ? editForm.getAttribute("data-id") : null;
+    const postType = "posts";
 
     if (!id && !postId) {
       alert("No valid post ID found.");

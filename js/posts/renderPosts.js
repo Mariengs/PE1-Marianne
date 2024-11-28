@@ -14,7 +14,6 @@ export async function renderPosts(post) {
       return;
     }
 
-    // Generer HTML for innleggene
     postsContainer.innerHTML = data
       .map(
         (data) => `
@@ -31,11 +30,10 @@ export async function renderPosts(post) {
       )
       .join("");
 
-    // Legg til event listeners for alle edit-knapper
     document.querySelectorAll(".edit-post-btn").forEach((button) => {
       button.addEventListener("click", (event) => {
-        const postId = event.target.getAttribute("data-id"); // Hent ID fra knappen
-        window.location.href = `/post/edit.html?id=${postId}`; // Omdiriger til edit.html med ID som parameter
+        const postId = event.target.getAttribute("data-id");
+        window.location.href = `/post/edit.html?id=${postId}`;
       });
     });
   } catch (error) {
@@ -47,7 +45,3 @@ export async function renderPosts(post) {
     }
   }
 }
-
-document.addEventListener("DOMContentLoaded", () => {
-  renderPosts();
-});

@@ -1,25 +1,10 @@
 import { BASE_URL } from "../constants/api.js";
 
-function getAccessToken() {
-  return localStorage.getItem("accessToken");
-}
-const user = JSON.parse(localStorage.getItem("user"));
-const name = user?.username || "defaultName";
+const PUBLIC_USER = "mareng";
 
-export async function fetchAllPosts() {
-  const accessToken = getAccessToken();
-
-  if (!accessToken) {
-    console.error("No access token found. Please log in.");
-    return [];
-  }
-
+export async function fetchAllPosts(name = PUBLIC_USER) {
   try {
-    const response = await fetch(BASE_URL + `blog/posts/${name}`, {
-      headers: {
-        Authorization: `Bearer ${accessToken}`,
-      },
-    });
+    const response = await fetch(`${BASE_URL}blog/posts/${name}`);
 
     if (!response.ok) throw new Error("Failed to fetch posts");
 
