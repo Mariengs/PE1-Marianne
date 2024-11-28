@@ -1,12 +1,19 @@
 import { BASE_URL } from "/js/constants/api.js";
 
 const accessToken = localStorage.getItem("accessToken");
-const id = new URLSearchParams(window.location.search).get("id");
-const name = JSON.parse(localStorage.getItem("user")).username;
+const userData = localStorage.getItem("user");
 
-if (!accessToken) {
-  alert("You must be logged in to edit this post.");
+if (!accessToken || !userData) {
+  alert("You must be logged in to access this page.");
   window.location.href = "login.html";
+}
+
+const user = JSON.parse(userData);
+const name = user?.username;
+
+if (!name) {
+  alert("Invalid user data. Please log in again.");
+  window.location.href = "/account/login.html";
 }
 
 export async function updatePost(event) {
@@ -89,6 +96,8 @@ document.addEventListener("DOMContentLoaded", () => {
     console.error("Form elements not found!");
   }
 });
+
+const id = new URLSearchParams(window.location.search).get("id");
 
 import { fetchPostById } from "/js/posts/singlePost.js";
 

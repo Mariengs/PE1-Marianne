@@ -3,9 +3,16 @@ import { BASE_URL } from "/js/constants/api.js";
 const accessToken = localStorage.getItem("accessToken");
 const urlParams = new URLSearchParams(window.location.search);
 const id = urlParams.get("id");
-const name = "mareng";
 
 export async function fetchPostById(id) {
+  const userData = localStorage.getItem("user");
+  const name = "mareng";
+
+  if (!id || !name) {
+    console.error("Missing id or name for fetching post.");
+    return null;
+  }
+
   try {
     const response = await fetch(`${BASE_URL}blog/posts/${name}/${id}`, {
       method: "GET",
@@ -18,14 +25,13 @@ export async function fetchPostById(id) {
       throw new Error(`Error fetching post: ${response.status}`);
     }
 
-    const data = await response.json();
-    return data;
+    return await response.json();
   } catch (error) {
     console.error("Error fetching post:", error);
     alert("Could not load post.");
+    return null;
   }
 }
-
 document.addEventListener("DOMContentLoaded", async () => {
   if (!id) {
     console.error("Post ID is missing.");
@@ -40,7 +46,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     const bodyElement = document.getElementById("body");
     const imageElement = document.getElementById("image");
 
-    // Vis posttittelen og innholdet
     if (titleElement) titleElement.textContent = data.data.title || "No title";
     if (bodyElement)
       bodyElement.textContent = data.data.body || "No content available.";
@@ -48,26 +53,22 @@ document.addEventListener("DOMContentLoaded", async () => {
       imageElement.src =
         data.data.media.url || "https://via.placeholder.com/150";
 
-    // Legg til sjekk for media.url
     if (imageElement && data.data.media && data.data.media.url) {
       imageElement.src = data.data.media.url;
     } else {
-      imageElement.src = "https://via.placeholder.com/150"; // Fallback bilde
+      imageElement.src = "https://via.placeholder.com/150";
     }
 
-    // Vis rediger og slett knapper kun for innloggede brukere
-    const editButton = document.getElementById("edit-button");
-    const deleteButton = document.getElementById("delete-button");
+    const editButton = document.getElementById("editButton");
+    const deleteButton = document.getElementById("deleteButton");
 
     if (accessToken) {
-      // Vis knappene hvis innlogget
       if (editButton) editButton.style.display = "inline-block";
       if (deleteButton) deleteButton.style.display = "inline-block";
 
-      // Definer handling for knappene
       if (editButton) {
         editButton.onclick = () => {
-          window.location.href = `post/edit.html?id=${id}`; // Send brukeren til redigeringssiden
+          window.location.href = `post/edit.html?id=${id}`;
         };
       }
 
@@ -77,7 +78,6 @@ document.addEventListener("DOMContentLoaded", async () => {
         };
       }
     } else {
-      // Skjul knappene hvis ikke innlogget
       if (editButton) editButton.style.display = "none";
       if (deleteButton) deleteButton.style.display = "none";
     }
@@ -86,15 +86,14 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 });
 
-// Funksjon for å slette innlegg (kun for innloggede brukere)
-async function deletePost(postId) {
+async function deletePost(id) {
   if (!accessToken) {
     alert("You must be logged in to delete this post.");
     return;
   }
 
   try {
-    const response = await fetch(`${BASE_URL}blog/posts/${postId}`, {
+    const response = await fetch(`${BASE_URL}blog/posts/${id}`, {
       method: "DELETE",
       headers: {
         Authorization: `Bearer ${accessToken}`,
@@ -104,7 +103,7 @@ async function deletePost(postId) {
 
     if (response.ok) {
       alert("Post deleted successfully!");
-      window.location.href = "/"; // Gå tilbake til forsiden etter sletting
+      window.location.href = "/";
     } else {
       throw new Error("Failed to delete post");
     }
@@ -113,3 +112,41 @@ async function deletePost(postId) {
     alert("Could not delete post.");
   }
 }
+
+window.logout = logout;
+
+function isLoggedIn() {
+  return localStorage.getItem("accessToken") !== null;
+}
+
+export function logout() {
+  localStorage.removeItem("accessToken");
+  localStorage.removeItem("user");
+  updateHeaderButtons();
+  window.location.href = "/";
+}
+
+function updateHeaderButtons() {
+  const buttonsHeader = document.querySelector(".buttonsheader");
+
+  if (isLoggedIn()) {
+    buttonsHeader.innerHTML = `
+      <button onclick="window.location.href='post/create.html'">Create New Post</button>
+      <button onclick="logout()">Logout</button>
+    `;
+  } else {
+    buttonsHeader.innerHTML = `
+      <button onclick="window.location.href='../account/login.html'">Login</button>
+      <button onclick="window.location.href='../account/register.html'">Register</button>
+    `;
+  }
+}
+document.addEventListener("DOMContentLoaded", () => {
+  const logoutButton = document.querySelector(".logout-btn");
+
+  if (logoutButton) {
+    logoutButton.addEventListener("click", logout);
+  }
+});
+
+document.addEventListener("DOMContentLoaded", updateHeaderButtons);

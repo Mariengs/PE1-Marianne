@@ -1,9 +1,5 @@
 import { renderPosts } from "./posts/renderPosts.js";
 
-document.addEventListener("DOMContentLoaded", () => {
-  const postsContainer = document.querySelector("#posts-container");
-});
-
 renderPosts();
 
 window.logout = logout;
@@ -12,7 +8,7 @@ function isLoggedIn() {
   return localStorage.getItem("accessToken") !== null;
 }
 
-function logout() {
+export function logout() {
   localStorage.removeItem("accessToken");
   localStorage.removeItem("user");
   updateHeaderButtons();

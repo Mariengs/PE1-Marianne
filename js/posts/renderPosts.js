@@ -17,16 +17,20 @@ export async function renderPosts(post) {
     postsContainer.innerHTML = data
       .map(
         (data) => `
-      <div class="post">
-      <a href="/post/index.html?id=${data.id}">
-        <img src="${
-          data.media?.url || "https://via.placeholder.com/150"
-        }" alt="${data.title}" class="post-thumbnail" /></a>
-        <h2>${data.title}</h2>
-       
-        <button class="edit-post-btn" data-id="${data.id}">Edit Post</button>
-      </div>
-    `
+        <div class="post">
+        <a href="/post/index.html?id=${data.id}">
+          <img src="${
+            data.media?.url || "https://via.placeholder.com/150"
+          }" alt="${data.title}" class="post-thumbnail" /></a>
+          <h2>${data.title}</h2>
+         
+          ${
+            user
+              ? `<button class="edit-post-btn" data-id="${data.id}">Edit Post</button>`
+              : ""
+          }
+        </div>
+      `
       )
       .join("");
 

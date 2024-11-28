@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
   const nextButton = document.querySelector(".carousel-control.next");
   const prevButton = document.querySelector(".carousel-control.prev");
 
+  window.nextSlide = nextSlide;
+
   function showSlide(index) {
     slides.forEach((slide, i) => {
       slide.classList.remove("active");
