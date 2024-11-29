@@ -82,8 +82,6 @@ document.addEventListener("DOMContentLoaded", async () => {
           window.location.href = `edit.html?id=${id}`;
         };
       }
-
-      postsContainer.appendChild(postElement);
     }
 
     const editButton = document.getElementById("editButton");
@@ -158,7 +156,7 @@ function updateHeaderButtons() {
 
   if (isLoggedIn()) {
     buttonsHeader.innerHTML = `
-      <button onclick="window.location.href='post/create.html'">Create New Post</button>
+      <button onclick="window.location.href='../post/create.html'">Create New Post</button>
       <button onclick="logout()">Logout</button>
     `;
   } else {
