@@ -40,6 +40,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   }
 
   const data = await fetchPostById(id);
+  const user = JSON.parse(localStorage.getItem("user"));
 
   if (data) {
     const titleElement = document.getElementById("title");
@@ -74,6 +75,15 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (lastUpdatedElement) {
       const updatedDate = new Date(data.data.updated);
       lastUpdatedElement.textContent = `Last updated: ${updatedDate.toLocaleString()}`;
+
+      const editButton = document.getElementById("editButton");
+      if (editButton) {
+        editButton.onclick = () => {
+          window.location.href = `edit.html?id=${id}`;
+        };
+      }
+
+      postsContainer.appendChild(postElement);
     }
 
     const editButton = document.getElementById("editButton");

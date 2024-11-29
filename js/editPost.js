@@ -32,6 +32,10 @@ export async function updatePost(event) {
     title,
     body,
     image,
+
+    author: {
+      name: name,
+    },
   };
 
   try {
@@ -108,6 +112,7 @@ async function loadEditForm() {
   const titleInput = document.getElementById("title");
   const bodyInput = document.getElementById("body");
   const imageInput = document.getElementById("image");
+  const authorInput = document.getElementById("author");
 
   if (titleInput) {
     titleInput.value = data.data.title || "";
@@ -119,6 +124,10 @@ async function loadEditForm() {
 
   if (imageInput) {
     imageInput.value = data.data.media.url || "";
+  }
+
+  if (authorInput) {
+    authorInput.value = data.data.author.name || "";
   }
 
   const editForm = document.getElementById("editForm");

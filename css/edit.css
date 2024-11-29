@@ -1,5 +1,6 @@
 @import url(../css/header.css);
 @import url(../css/footer.css);
+@import url(../css/styles.css);
 
 body {
   max-width: auto;
@@ -29,13 +30,11 @@ main {
 #editForm {
   background-color: #ffffff;
   width: 100%;
-  max-width: 500px;
   padding: 50px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Tittel for skjemaet */
 #editForm label {
   display: block;
   font-weight: bold;
@@ -45,6 +44,7 @@ main {
 
 /* Styling for inputfelt */
 #editForm input[type="text"],
+#editForm input[type="url"],
 #editForm textarea {
   width: 100%;
   padding: 10px;
@@ -58,6 +58,7 @@ main {
 #editForm textarea {
   resize: vertical;
   min-height: 120px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Styling for knapper */
@@ -73,7 +74,7 @@ main {
 }
 
 #editForm button[type="submit"] {
-  background-color: #424953; /* Grønn for oppdatering */
+  background-color: #424953;
 }
 
 #editForm button[type="submit"]:hover {
@@ -81,7 +82,7 @@ main {
 }
 
 #editForm button[type="button"] {
-  background-color: #424953; /* Rød for sletting */
+  background-color: #424953;
 }
 
 #editForm button[type="button"]:hover {
@@ -90,7 +91,8 @@ main {
 
 @media (max-width: 600px) {
   #editForm {
-    padding: 15px;
+    width: 100%;
+    padding: 10px;
   }
 
   #editForm button {
