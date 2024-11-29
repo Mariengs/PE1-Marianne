@@ -39,7 +39,7 @@ document.addEventListener("DOMContentLoaded", async () => {
       const slide = document.createElement("div");
       slide.className = "carousel-slide";
       if (index === 0) slide.classList.add("active");
-      slide.setAttribute("data-url", `post.html?id=${post.id}`);
+      slide.setAttribute("data-url", `../post/index.html?id=${post.id}`);
 
       const imageElement = document.createElement("img");
       imageElement.src = post.media.url;
