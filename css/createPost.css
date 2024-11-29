@@ -44,6 +44,7 @@ main {
 #createPostForm textarea {
   resize: vertical;
   min-height: 120px;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
 #createPostForm button {

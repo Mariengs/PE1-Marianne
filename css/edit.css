@@ -7,16 +7,6 @@ body {
   margin: 1;
   background-color: #f7f7f8;
 }
-h1,
-h2,
-a {
-  font-family: "Times New Roman", Times, serif;
-}
-
-h1 {
-  font-size: 24px;
-  margin-bottom: 20px;
-}
 
 main {
   display: flex;
@@ -29,7 +19,9 @@ main {
 /* Container for redigeringsskjemaet */
 #editForm {
   background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   width: 100%;
+  max-width: 500px;
   padding: 50px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -90,13 +82,24 @@ main {
 }
 
 @media (max-width: 600px) {
+  main {
+    padding: 20px; /* Minsker padding for å gi plass til små skjermer */
+    margin-right: 10px;
+  }
+
   #editForm {
-    width: 100%;
-    padding: 10px;
+    padding: 50px; /* Minsker padding på skjemaet for små skjermer */
+    max-width: 100%; /* Skjemaet skal bruke hele bredden på skjermen */
   }
 
   #editForm button {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 100%; /* Knappene skal bruke hele bredden på små skjermer */
+    margin-bottom: 10px; /* Gir litt avstand mellom knappene */
+  }
+
+  #editForm input[type="text"],
+  #editForm input[type="url"],
+  #editForm textarea {
+    font-size: 14px; /* Reduserer fontstørrelsen for små skjermer */
   }
 }
