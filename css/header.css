@@ -35,33 +35,53 @@ header {
 }
 
 @media screen and (max-width: 600px) {
+  body {
+    font-size: 14px;
+  }
+
+  h1 {
+    font-size: 20px;
+  }
+
+  h2 {
+    font-size: 16px;
+  }
+
+  a {
+    font-size: 12px;
+  }
+  header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   .logoheader {
     display: flex;
     justify-content: center;
-    margin-bottom: 20px; /* Avstand mellom logo og knappene */
+    margin-bottom: 10px;
   }
 
   .logoheader img {
-    content: url(../assets/mobile-logo.png); /* Bruk mobilversjon av logoen */
-    height: 50px; /* Reduserer høyden på logoen */
-    width: auto; /* Beholder riktig proporsjon */
+    content: url(../assets/mobile-logo.png);
+    height: 20%;
+    width: auto;
   }
 
-  /* Knappene plasseres under logoen */
   .buttonsheader {
     display: flex;
-    flex-direction: column; /* Plasser knappene vertikalt */
-    align-items: center; /* Sentrer knappene */
-    gap: 10px; /* Avstand mellom knappene */
+    align-items: center;
+    gap: 10px;
   }
 
   .loginbutton,
   .registerbutton,
   .createbutton,
   .logout-btn {
-    width: 100%; /* Knappene fyller 80% av skjermen */
-    max-width: 50px; /* Setter en maks bredde for knappene */
-    padding: 12px; /* Øker knappens høyde */
-    font-size: 14px; /* Reduserer tekststørrelsen litt */
+    width: 90%;
+    max-width: 300px;
+    min-width: 150px;
+    padding: 10px;
+    font-size: 14px;
   }
 }

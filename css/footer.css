@@ -17,3 +17,22 @@ footer {
   font-size: 16px;
   color: #333;
 }
+
+@media screen and (max-width: 600px) {
+  footer {
+    flex-direction: column;
+    align-items: center;
+    padding: 15px;
+  }
+
+  .logofooter img {
+    width: 80px;
+    margin-bottom: 10px;
+  }
+
+  .footer-text p {
+    font-size: 14px;
+    text-align: center;
+    margin-top: 5px;
+  }
+}
