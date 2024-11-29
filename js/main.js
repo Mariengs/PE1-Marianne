@@ -4,7 +4,7 @@ renderPosts();
 
 window.logout = logout;
 
-function isLoggedIn() {
+export function isLoggedIn() {
   return localStorage.getItem("accessToken") !== null;
 }
 
@@ -15,7 +15,7 @@ export function logout() {
   window.location.href = "/";
 }
 
-function updateHeaderButtons() {
+export function updateHeaderButtons() {
   const buttonsHeader = document.querySelector(".buttonsheader");
 
   if (isLoggedIn()) {

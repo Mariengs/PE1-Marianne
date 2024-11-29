@@ -1,4 +1,5 @@
 import { BASE_URL } from "/js/constants/api.js";
+import { updateHeaderButtons } from "/js/main.js";
 
 const user = JSON.parse(localStorage.getItem("user"));
 const name = user?.username || "defaultName";
@@ -16,6 +17,7 @@ async function createPost(event) {
   const title = document.getElementById("title").value;
   const body = document.getElementById("body").value;
   const image = document.getElementById("image").value;
+  const author = document.getElementById("author").value;
 
   const postData = {
     title,
@@ -24,6 +26,9 @@ async function createPost(event) {
     media: {
       url: image,
       alt: "Post image",
+    },
+    author: {
+      name: author,
     },
   };
 
@@ -52,6 +57,8 @@ async function createPost(event) {
     alert("Could not create post.");
   }
 }
+
+updateHeaderButtons();
 
 document
   .getElementById("createPostForm")

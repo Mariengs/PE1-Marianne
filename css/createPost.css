@@ -10,9 +10,10 @@ main {
   padding: 14px;
   background-color: #f7f7f8;
 }
-/* Container for redigeringsskjemaet */
+
 #createPostForm {
   background-color: #ffffff;
+  font-family: Arial, Helvetica, sans-serif;
   width: 100%;
   max-width: 500px;
   padding: 50px;
@@ -30,6 +31,7 @@ main {
 
 /* Styling for inputfelt */
 #createPostForm input[type="text"],
+#createPostForm input[type="url"],
 #createPostForm textarea {
   width: 100%;
   padding: 10px;
@@ -64,12 +66,24 @@ main {
 }
 
 @media (max-width: 600px) {
+  main {
+    padding: 20px; /* Minsker padding for å gi plass til små skjermer */
+    margin-right: 10px;
+  }
+
   #createPostForm {
-    padding: 15px;
+    padding: 50px; /* Minsker padding på skjemaet for små skjermer */
+    max-width: 100%; /* Skjemaet skal bruke hele bredden på skjermen */
   }
 
   #createPostForm button {
-    width: 100%;
-    margin-bottom: 10px;
+    width: 100%; /* Knappene skal bruke hele bredden på små skjermer */
+    margin-bottom: 10px; /* Gir litt avstand mellom knappene */
+  }
+
+  #createPostForm input[type="text"],
+  #createPostForm input[type="url"],
+  #createPostForm textarea {
+    font-size: 14px; /* Reduserer fontstørrelsen for små skjermer */
   }
 }
