@@ -1,5 +1,4 @@
 import { BASE_URL } from "./constants/api.js";
-const logInUrl = `${BASE_URL}auth/login`;
 
 // Mari
 // marengs@stud.noroff.no
@@ -7,7 +6,7 @@ const logInUrl = `${BASE_URL}auth/login`;
 
 async function logIn(email, password) {
   try {
-    const response = await fetch(logInUrl, {
+    const response = await fetch(`${BASE_URL}auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

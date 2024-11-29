@@ -1,4 +1,4 @@
-import { registerUrl } from "../js/constants/api.js";
+import { BASE_URL } from "../js/constants/api.js";
 
 function getValues() {
   const name = document.getElementById("name").value;
@@ -23,7 +23,7 @@ function buildRequestBody({ name, email, password }) {
 
 async function registerUser(requestBody) {
   try {
-    const response = await fetch(registerUrl, {
+    const response = await fetch(`${BASE_URL}auth/register`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(requestBody),
