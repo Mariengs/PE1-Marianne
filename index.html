@@ -35,41 +35,15 @@
     <main>
       <h1>HotView Posts</h1>
       <div class="carousel">
-        <div
-          class="carousel-slide active"
-          data-url="https://unsplash.com/photos/person-facing-computer-desktop-pjAH2Ax4uWk"
-        >
-          <img src="assets/personfacing.avif" alt="Person facing computer" />
-        </div>
-        <div
-          class="carousel-slide"
-          data-url="https://unsplash.com/photos/macbook-pro-on-top-of-brown-table-1SAnrIxw5OY"
-        >
-          <img
-            src="assets/macondesk.png"
-            alt="macbook-pro on top of brown table"
-          />
-        </div>
-        <div
-          class="carousel-slide"
-          data-url="https://unsplash.com/photos/a-macbook-with-lines-of-code-on-its-screen-on-a-busy-desk-m_HRfLhgABo"
-        >
-          <img
-            src="assets/codingmac.avif"
-            alt="a macbook with lines of code on its screen on a busy desk"
-          />
-        </div>
-
-        <button class="carousel-control prev" onclick="prevSlide()">❮</button>
-        <button class="carousel-control next" onclick="nextSlide()">❯</button>
+        <div class="carousel-inner"></div>
+        <button class="carousel-control prev">&#8592;</button>
+        <button class="carousel-control next">&#8594;</button>
       </div>
 
       <section class="posts-container">
         <h2>Latest posts</h2>
 
-        <div id="posts-container" class="posts-grid">
-          <button class="edit-post-btn" href="post/edit.html"></button>
-        </div>
+        <div id="posts-container" class="posts-grid"></div>
       </section>
     </main>
     <footer>

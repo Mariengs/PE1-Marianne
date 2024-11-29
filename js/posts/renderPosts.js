@@ -14,25 +14,36 @@ export async function renderPosts(post) {
       return;
     }
 
-    postsContainer.innerHTML = data
-      .map(
-        (data) => `
-        <div class="post">
-        <a href="/post/index.html?id=${data.id}">
-          <img src="${
-            data.media?.url || "https://via.placeholder.com/150"
-          }" alt="${data.title}" class="post-thumbnail" /></a>
-          <h3>${data.title}</h3>
-         
-          ${
-            user
-              ? `<button class="edit-post-btn" data-id="${data.id}">Edit Post</button>`
-              : ""
-          }
-        </div>
-      `
-      )
-      .join("");
+    data.slice(0, 12).forEach((post) => {
+      const postElement = document.createElement("div");
+      postElement.classList.add("post");
+
+      const linkElement = document.createElement("a");
+      linkElement.href = `/post/index.html?id=${post.id}`;
+
+      const imgElement = document.createElement("img");
+      imgElement.src = post.media?.url || "https://via.placeholder.com/150";
+      imgElement.alt = post.title;
+      imgElement.classList.add("post-thumbnail");
+
+      linkElement.appendChild(imgElement);
+
+      const titleElement = document.createElement("h3");
+      titleElement.textContent = post.title;
+
+      postElement.appendChild(linkElement);
+      postElement.appendChild(titleElement);
+
+      if (user) {
+        const editButton = document.createElement("button");
+        editButton.classList.add("edit-post-btn");
+        editButton.textContent = "Edit Post";
+        editButton.dataset.id = post.id;
+        postElement.appendChild(editButton);
+      }
+
+      postsContainer.appendChild(postElement);
+    });
 
     document.querySelectorAll(".edit-post-btn").forEach((button) => {
       button.addEventListener("click", (event) => {
