@@ -33,3 +33,35 @@ header {
 .registerbutton button:hover {
   background-color: #62676c;
 }
+
+@media screen and (max-width: 600px) {
+  .logoheader {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 20px; /* Avstand mellom logo og knappene */
+  }
+
+  .logoheader img {
+    content: url(../assets/mobile-logo.png); /* Bruk mobilversjon av logoen */
+    height: 50px; /* Reduserer høyden på logoen */
+    width: auto; /* Beholder riktig proporsjon */
+  }
+
+  /* Knappene plasseres under logoen */
+  .buttonsheader {
+    display: flex;
+    flex-direction: column; /* Plasser knappene vertikalt */
+    align-items: center; /* Sentrer knappene */
+    gap: 10px; /* Avstand mellom knappene */
+  }
+
+  .loginbutton,
+  .registerbutton,
+  .createbutton,
+  .logout-btn {
+    width: 100%; /* Knappene fyller 80% av skjermen */
+    max-width: 50px; /* Setter en maks bredde for knappene */
+    padding: 12px; /* Øker knappens høyde */
+    font-size: 14px; /* Reduserer tekststørrelsen litt */
+  }
+}
