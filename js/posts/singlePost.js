@@ -75,13 +75,6 @@ document.addEventListener("DOMContentLoaded", async () => {
     if (lastUpdatedElement) {
       const updatedDate = new Date(data.data.updated);
       lastUpdatedElement.textContent = `Last updated: ${updatedDate.toLocaleString()}`;
-
-      const editButton = document.getElementById("editButton");
-      if (editButton) {
-        editButton.onclick = () => {
-          window.location.href = `edit.html?id=${id}`;
-        };
-      }
     }
 
     const editButton = document.getElementById("editButton");
@@ -93,7 +86,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 
       if (editButton) {
         editButton.onclick = () => {
-          window.location.href = `post/edit.html?id=${id}`;
+          window.location.href = `../post/edit.html?id=${id}`;
         };
       }
 
