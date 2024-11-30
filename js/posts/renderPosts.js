@@ -17,20 +17,16 @@ export async function renderPosts(post) {
     data.slice(0, 12).forEach((post) => {
       const postElement = document.createElement("div");
       postElement.classList.add("post");
-
       const linkElement = document.createElement("a");
       linkElement.href = `/post/index.html?id=${post.id}`;
-
       const imgElement = document.createElement("img");
       imgElement.src = post.media?.url || "https://via.placeholder.com/150";
       imgElement.alt = post.title;
       imgElement.classList.add("post-thumbnail");
-
-      linkElement.appendChild(imgElement);
-
       const titleElement = document.createElement("h3");
       titleElement.textContent = post.title;
 
+      linkElement.appendChild(imgElement);
       postElement.appendChild(linkElement);
       postElement.appendChild(titleElement);
 
