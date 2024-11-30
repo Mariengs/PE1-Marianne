@@ -78,7 +78,7 @@ header {
   .registerbutton,
   .createbutton,
   .logout-btn {
-    width: 90%;
+    width: 80%;
     max-width: 300px;
     min-width: 150px;
     padding: 10px;

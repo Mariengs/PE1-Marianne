@@ -9,6 +9,7 @@ body {
 
 h1,
 h2,
+h3,
 a {
   font-family: "Times New Roman", Times, serif;
 }
@@ -56,7 +57,10 @@ header {
 .buttonsheader button:hover,
 .loginbutton button:hover,
 .registerbutton button:hover,
-.createpostbutton button:hover {
+.createpostbutton button:hover,
+.load-more-btn:hover,
+.logout-btn:hover,
+.edit-post-btn:hover {
   background-color: #62676c;
 }
 
@@ -77,7 +81,8 @@ header {
   box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.2);
 }
 .loginbutton,
-.registerbutton {
+.registerbutton,
+.load-more-btn {
   padding: 10px 20px;
   background-color: #424953;
   font-size: 14px;
@@ -116,6 +121,11 @@ main {
   cursor: pointer;
 }
 
+.posts-container h2 {
+  margin-bottom: 50px;
+  text-align: center;
+}
+
 .posts-grid {
   display: flex;
   flex-wrap: wrap;
@@ -148,4 +158,28 @@ main {
   color: #ffffff;
   border: none;
   border-radius: 5px;
+  cursor: pointer;
+}
+
+/* .load-more-btn button {
+  display: flex;
+}
+
+.load-more-btn {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #424953;
+  font-size: 14px;
+  font-family: Arial, Helvetica, sans-serif;
+  color: #ffffff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+} */
+
+@media (max-width: 600px) {
+  main {
+    padding: 20px;
+    margin-right: 10px;
+  }
 }

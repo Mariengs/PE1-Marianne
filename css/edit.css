@@ -16,7 +16,7 @@ main {
   padding: 14px;
   background-color: #f7f7f8;
 }
-/* Container for redigeringsskjemaet */
+
 #editForm {
   background-color: #ffffff;
   font-family: Arial, Helvetica, sans-serif;
@@ -34,7 +34,6 @@ main {
   color: #333;
 }
 
-/* Styling for inputfelt */
 #editForm input[type="text"],
 #editForm input[type="url"],
 #editForm textarea {
@@ -46,14 +45,12 @@ main {
   font-size: 16px;
 }
 
-/* Styling for textarea */
 #editForm textarea {
   resize: vertical;
   min-height: 120px;
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* Styling for knapper */
 #editForm button {
   width: 48%;
   padding: 10px;
@@ -83,23 +80,23 @@ main {
 
 @media (max-width: 600px) {
   main {
-    padding: 20px; /* Minsker padding for å gi plass til små skjermer */
+    padding: 20px;
     margin-right: 10px;
   }
 
   #editForm {
-    padding: 50px; /* Minsker padding på skjemaet for små skjermer */
-    max-width: 100%; /* Skjemaet skal bruke hele bredden på skjermen */
+    padding: 50px;
+    max-width: 100%;
   }
 
   #editForm button {
-    width: 100%; /* Knappene skal bruke hele bredden på små skjermer */
-    margin-bottom: 10px; /* Gir litt avstand mellom knappene */
+    width: 100%;
+    margin-bottom: 10px;
   }
 
   #editForm input[type="text"],
   #editForm input[type="url"],
   #editForm textarea {
-    font-size: 14px; /* Reduserer fontstørrelsen for små skjermer */
+    font-size: 14px;
   }
 }
