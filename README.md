@@ -1,6 +1,6 @@
 # Project Exam 1
 
-![image](https://github.com/Mariengs/PE1-Marianne/blob/main/assets/horizontal-logo.png)
+![image](https://github.com/Mariengs/portfolio1/blob/main/assets/hotviewlabss.png)
 
 
 ## Description
