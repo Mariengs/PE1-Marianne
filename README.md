@@ -18,7 +18,6 @@ During testing, you will use your own account that you create to act as the owne
 
 ## Built With
 
-You can list a the tech stack that you've used over here
 
 - HTML
 - CSS
