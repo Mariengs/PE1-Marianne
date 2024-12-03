@@ -1,6 +1,7 @@
 # Project Exam 1
 
-![image](https://github.com/Mariengs/portfolio1/blob/main/assets/hotviewlabss.png)
+<img src="https://github.com/Mariengs/portfolio1/blob/main/assets/hotviewlabss.png" alt="Portfolio image" width="200" />
+
 
 
 ## Description
@@ -13,12 +14,7 @@ The client has asked for a responsive application that allows users to view dyna
 The client requires admin pages to register, login and manage their blog posts. 
 During testing, you will use your own account that you create to act as the owner.
 
-
-
-
 ## Built With
-
-
 - HTML
 - CSS
 - Javascript
